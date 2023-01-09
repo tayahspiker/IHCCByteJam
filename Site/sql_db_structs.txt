@@ -1,0 +1,84 @@
+NOTE, This database coallation should be set to latin_general_cs (for case senstitive comparisons) and innoDB engine
+
+DESCRIBES:
+
+  - admin_settings
+  +-------------------+----------+------+-----+---------+----------------+
+  | Field             | Type     | Null | Key | Default | Extra          |
+  +-------------------+----------+------+-----+---------+----------------+
+  | id                | int(11)  | NO   | PRI | NULL    | auto_increment |
+  | voting_start_date | datetime | YES  |     | NULL    |                |
+  | voting_end_date   | datetime | YES  |     | NULL    |                |
+  +-------------------+----------+------+-----+---------+----------------+
+
+  - education_division
+  +----------+-------------+------+-----+---------+----------------+
+  | Field    | Type        | Null | Key | Default | Extra          |
+  +----------+-------------+------+-----+---------+----------------+
+  | id       | int(11)     | NO   | PRI | NULL    | auto_increment |
+  | division | varchar(75) | NO   |     | NULL    |                |
+  +----------+-------------+------+-----+---------+----------------+
+
+  - team
+  +--------------------+-------------+------+-----+---------+----------------+
+  | Field              | Type        | Null | Key | Default | Extra          |
+  +--------------------+-------------+------+-----+---------+----------------+
+  | id                 | int(11)     | NO   | PRI | NULL    | auto_increment |
+  | name               | varchar(75) | NO   |     | NULL    |                |
+  | education_division | int(11)     | NO   | MUL | NULL    |                |
+  +--------------------+-------------+------+-----+---------+----------------+
+
+  - division_rep
+  +--------------------+-------------+------+-----+---------+----------------+
+  | Field              | Type        | Null | Key | Default | Extra          |
+  +--------------------+-------------+------+-----+---------+----------------+
+  | id                 | int(11)     | NO   | PRI | NULL    | auto_increment |
+  | name               | varchar(75) | NO   |     | NULL    |                |
+  | education_division | int(11)     | NO   | MUL | NULL    |                |
+  | pin                | char(6)     | NO   | UNI | NULL    |                |
+  +--------------------+-------------+------+-----+---------+----------------+
+
+  - company
+  +-------+--------------+------+-----+---------+----------------+
+  | Field | Type         | Null | Key | Default | Extra          |
+  +-------+--------------+------+-----+---------+----------------+
+  | id    | int(11)      | NO   | PRI | NULL    | auto_increment |
+  | name  | varchar(100) | NO   |     | NULL    |                |
+  | pin   | char(6)      | NO   | UNI | NULL    |                |
+  +-------+--------------+------+-----+---------+----------------+
+
+  - vote_result
+  +------------+-------------+------+-----+---------+-------+
+  | Field      | Type        | Null | Key | Default | Extra |
+  +------------+-------------+------+-----+---------+-------+
+  | voter_id   | varchar(24) | NO   |     | NULL    |       |
+  | voter_type | char(20)    | NO   |     | NULL    |       |
+  | team_id    | int(11)     | NO   | MUL | NULL    |       |
+  | rating     | json        | NO   |     | NULL    |       |
+  +------------+-------------+------+-----+---------+-------+
+
+CONSTRAINTS:
+  NOTICE votes aren't deleted if the TEAM/EDUCATION DIVISION is
+  +-----------------------------+----------------------+--------------------+-------------+-----------------------+
+  | CONSTRAINT_NAME             | TABLE_NAME           | CONSTRAINT COLUMN  | DELETE_RULE | REFERENCED_TABLE_NAME |
+  +-----------------------------+----------------------+--------------------+-------------+-----------------------+
+  | division_rep_ibfk_1         | division_rep         | education_division | CASCADE     | education_division    |
+  | team_ibfk_1                 | team                 | education_division | CASCADE     | education_division    |
+  | vote_result_ibfk_1          | vote_result          | team_id            | RESTRICT    | team                  |
+  +-----------------------------+----------------------+--------------------+-------------+-----------------------+
+
+INDEXES:
+  +--------------------+--------------------+--------------------+------------+-------------+
+  | TABLE_NAME         | INDEX_NAME         | COLUMN_NAME        | NON_UNIQUE | CARDINALITY |
+  +--------------------+--------------------+--------------------+------------+-------------+
+  | admin_settings     | PRIMARY            | id                 |          0 |           1 |
+  | company            | PRIMARY            | id                 |          0 |           0 |
+  | company            | pin                | pin                |          0 |           0 |
+  | division_rep       | PRIMARY            | id                 |          0 |           0 |
+  | division_rep       | pin                | pin                |          0 |           0 |
+  | division_rep       | education_division | education_division |          1 |           0 |
+  | education_division | PRIMARY            | id                 |          0 |           3 |
+  | team               | PRIMARY            | id                 |          0 |           0 |
+  | team               | education_division | education_division |          1 |           0 |
+  | vote_result        | team_id            | team_id            |          1 |           0 |
+  +--------------------+--------------------+--------------------+------------+-------------+

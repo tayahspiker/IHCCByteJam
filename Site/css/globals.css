@@ -1,0 +1,11 @@
+@import url('https://fonts.googleapis.com/css?family=Rubik:400,600');
+
+:root {
+  /* USAGE -> --selector-identifier-element-elementchild/name-psuedoclass */
+  --ihcc-orange : #ffb200;
+  --ihcc-grey: hsl(16, 5%, 38%);
+  --ihcc-dark: #333;
+
+  --global-font-family : 'Rubik';
+  --global-font-size : 1rem;
+}

@@ -1,0 +1,38 @@
+{
+  "config" : {
+    "max_rating" : 5
+  },
+  "user_type" : {
+    "IHCC Staff" : [
+      { "topic" : "Ad Appeal", "desc" : "Did the team's advertisement draw you in?"},
+      { "topic" : "Project Design", "desc" : "Does the project look nice and well put together?"},
+      { "topic" : "Theme Integration", "desc" : "Did the project represent the theme well?"},
+      { "topic" : "Creativity", "desc" : "Was the project an original idea?"},
+      { "topic" : "Professionalism and Communication", "desc" : "Did the team communicate the purpose of their project in a clear and professional manner?"},
+      { "topic" : "Performance and Functionality", "desc" : "Did the project perform as intended?"}
+    ],
+    "coach" : [
+      { "topic" : "Ad Appeal", "desc" : "Did the team's advertisement draw you in?"},
+      { "topic" : "Project Design", "desc" : "Does the project look nice and well put together?"},
+      { "topic" : "Theme Integration", "desc" : "Did the project represent the theme well?"},
+      { "topic" : "Creativity", "desc" : "Was the project an original idea?"},
+      { "topic" : "Professionalism and Communication", "desc" : "Did the team communicate the purpose of their project in a clear and professional manner?"},
+      { "topic" : "Performance and Functionality", "desc" : "Did the project perform as intended?"}
+    ],
+    "company" : [
+      { "topic" : "Ad Appeal", "desc" : "Did the team's advertisement draw you in?"},
+      { "topic" : "Project Design", "desc" : "Does the project look nice and well put together?"},
+      { "topic" : "Theme Integration", "desc" : "Did the project represent the theme well?"},
+      { "topic" : "Creativity", "desc" : "Was the project an original idea?"},
+      { "topic" : "Professionalism and Communication", "desc" : "Did the team communicate the purpose of their project in a clear and professional manner?"},
+      { "topic" : "Performance and Functionality", "desc" : "Did the project perform as intended?"}
+    ],
+    "student" : [
+      { "topic" : "Ad Appeal", "desc" : "Did the team's advertisement draw you in?"},
+      { "topic" : "Amazement", "desc" : "Did the team's project amaze you?"},
+      { "topic" : "Theme", "desc" : "Did the project represent the theme well?"},
+      { "topic" : "Performance", "desc" : "Did the project perform as intended?"}
+      
+    ]
+  }
+}
