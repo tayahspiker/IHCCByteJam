@@ -1,0 +1,78 @@
+/* VOTING CSS code.
+03/16/2023 Tayah Spiker */
+
+/* Color Palette
+#9C3442 - Maroon
+#FFB133 - yellow
+#000000 - black
+#FFFFFF - white
+*/
+
+/* Global sytles
+-----------------------*/
+html {
+	font-family: 'Nunito', sans-serif;
+}
+
+/* This will remove the white margin of 8px that is default in Google Chrome and other browsers */
+body{
+	margin: 0px;
+}
+
+h1 {font-size: 60px;
+	text-align: center;}
+
+.content li {
+	font-size: 20px;
+}
+
+
+
+/* Nav sytles
+-----------------------*/
+nav {
+	text-align: center;
+	background: #9C3442; 
+	/* position: fixed; */
+	padding-bottom: 10px;
+	width: 100%;
+	
+}
+nav a {
+	display: inline-block;
+	padding: 15px 20px;
+	text-decoration: none;
+	text-transform: uppercase;
+	font-weight: 600;
+	color: black;
+}
+nav a:hover {
+	background-color: #FFB133;
+	border-radius: 20px;
+	
+}
+
+/* Footer sytles
+-----------------------*/
+footer {
+	position: relative;
+	text-align: center;
+	background: #9C3442;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	
+	
+}
+footer a {
+	display: inline-block;
+	padding: 15px 20px;
+	text-decoration: none;
+	text-transform: uppercase;
+	font-weight: 700;
+	color: black;
+}
+footer a:hover {
+	background-color: #FFB133;
+	border-radius: 20px;
+	
+}
